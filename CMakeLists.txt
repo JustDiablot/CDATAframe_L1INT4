@@ -6,6 +6,6 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(CDATAframe_L1INT4
-        CDATAframe.c
-        CDATAframe.h
+        column.c
+        column.h
         main.c)
