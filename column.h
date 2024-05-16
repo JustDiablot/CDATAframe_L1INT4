@@ -4,7 +4,7 @@
 
 typedef struct {
     char* title;
-    int lsize;
+    int lsize;              //look at void* notion
     int psize;
     int *data;
 } COLUMN;

@@ -8,7 +8,7 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 
     printf("\t\tWelcome to the CDATAFrame\n\tBy Oscar Masduppuy & Auffray Valentin\n\n");
-    
+
     char *titles[] = {"Big", "Column", "Bebou"};
     int num_columns = sizeof(titles) / sizeof(titles[0]);
 
