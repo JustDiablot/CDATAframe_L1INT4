@@ -4,97 +4,131 @@
 #include "column.h"
 #include "CDATA.h"
 
-int main{
-    bool start = True;
+
+int main() {
+    int start = 0;
     int choice = 0;
+    int nb_col = 0, nb_row = 0, i = 0;
+    int new_choice = 0;
+    char **titles = NULL;
+    DF *df = NULL;
+
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
-    while (start==True){
-        while(choice<1||choice>6){
+    while (start == 0) {
+        while (choice < 1 || choice > 6) {
             printf("Choose your option :\n");
             printf("1 - Create a new Data frame\n");
             printf("2 - Fill the Data frame\n");
             printf("3 - Display the Data frame\n");
-            printf("4 - Modifiy the Data frame\n");
-            printf("5 - Analyse the Data frame\n");
+            printf("4 - Modify the Data frame\n");
+            printf("5 - Analyze the Data frame\n");
             printf("6 - Exit\n");
-            scanf("%d",&choice);}
-        switch(choice){
+            scanf("%d", &choice);
+        }
+        switch (choice) {
             case 1:
-                int nb_col,,nb_row,i;
                 printf("Enter the number of columns :\n");
-                scanf("%d",&nb_col)
-                char *titles[nb_col] = {};
-                DF df* = create_empty_dataframe(int nb_col);
-                printf("Enter the name of your colums :\n");
-                for(i=1,i<nb_col,i++){
-                    printf("Column %d name",i);
-                    scanf("%c",*titles[i]);
+                scanf("%d", &nb_col);
+                df = create_empty_dataframe(nb_col);
+
+                titles = (char **)malloc(nb_col * sizeof(char *));
+                printf("Enter the name of your columns :\n");
+                for (i = 0; i < nb_col; i++) {
+                    titles[i] = (char *)malloc(100 * sizeof(char)); // Assuming max column name length is 100
+                    printf("Column %d name: ", i + 1);
+                    scanf("%s", titles[i]);
                 }
-                fill_dataframe(DF *df, *titles,nb_col)
+                fill_dataframe(df, titles, nb_col);
+                printf("Your Data Frame has been created");
                 break;
-            
+
             case 2:
-                int new_choice = 0;
-                while(new_choice<1||new_choice>2){
+                new_choice = 0;
+                while (new_choice < 1 || new_choice > 2) {
                     printf("1 - Fill the Data Frame\n");
                     printf("2 - Fill the Data Frame with random values\n");
-                    scanf("%d",&new_choice);
+                    scanf("%d", &new_choice);
                 }
-                switch(new_choice){
+                switch (new_choice) {
                     case 1:
-                    printf("Which column do you want to fill :\n");
-                    scanf("%d",nb_col);
-                    printf("How many rows do you want to fill :\n");
-                    scanf("%d",nb_row);
-                    for(i=1, i<nb_row,i++){
-                        insert_value(df->column[nb_col],scanf("%d"))
-                    }
-                    
+                        printf("Which column do you want to fill (0 to %d):\n", nb_col - 1);
+                        int col_index;
+                        scanf("%d", &col_index);
+                        if (col_index < 0 || col_index >= nb_col) {
+                            printf("Invalid column index.\n");
+                            break;
+                        }
+                        printf("How many rows do you want to fill :\n");
+                        scanf("%d", &nb_row);
+                        for (i = 0; i < nb_row; i++) {
+                            int value;
+                            printf("Enter value for row %d: ", i + 1);
+                            scanf("%d", &value);
+                            insert_value(df->columns[col_index], value);
+                        }
+                        break;
+                    case 2:
+                        printf("Filling the Data Frame with random values is not yet implemented.\n");
+                        break;
+                    default:
+                        printf("ERROR\n");
+                        break;
                 }
                 break;
-            
+
             case 3:
-                //code
+                if (df != NULL) {
+                    print_dataframe(df);
+                } else {
+                    printf("Data frame is not created yet.\n");
+                }
                 break;
-            
+
             case 4:
-                //code
+                if (df != NULL) {
+                    // Implement your logic to modify the DataFrame
+                    printf("Modify the Data frame functionality is not yet implemented.\n");
+                } else {
+                    printf("Data frame is not created yet.\n");
+                }
                 break;
-            
+
             case 5:
-                //code
+                if (df != NULL) {
+                    // Implement your logic to analyze the DataFrame
+                    printf("Analyze the Data frame functionality is not yet implemented.\n");
+                } else {
+                    printf("Data frame is not created yet.\n");
+                }
                 break;
-            
+
             case 6:
-                //code
+                printf("Exiting...\n");
+                start = 1;
                 break;
-            
+
             default:
-                printf("ERROR");
+                printf("ERROR\n");
                 break;
-            
-            
-
-            
-
-        
-
         }
-
-        
-        
-        
-        
-
-
-
+        choice = 0; // Reset choice to re-enter the menu
     }
-    
 
-    
-        
-    
-    
+    // Free memory
+    if (df != NULL) {
+        for (i = 0; i < nb_col; i++) {
+            delete_column(&(df->columns[i]));
+        }
+        free(df->columns);
+        free(df);
+    }
+    if (titles != NULL) {
+        for (i = 0; i < nb_col; i++) {
+            free(titles[i]);
+        }
+        free(titles);
+    }
+
     return 0;
 }
 //only way we found to compile C files on Windows PCs
@@ -130,7 +164,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 }
 
 
-1. Filling
+/*1. Filling
     • Creation of an empty CDataframe
     • Filling in the CDataframe with user input
     • Hard filling of the CDataframe
@@ -152,4 +186,4 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     • Display the number of columns
     • Display the number of cells equal to x (x given as parameter)
     • Display the number of cells containing a value greater than x (x given as a parameter)
-    • Display the number of cells containing a value less than x(x given as parameter)
+    • Display the number of cells containing a value less than x(x given as parameter)*/
