@@ -68,7 +68,8 @@ int main() {
                         }
                         break;
                     case 2:
-                        printf("Filling the Data Frame with random values is not yet implemented.\n");
+                        auto_fill_dataframe(df, 10);
+                        printf("Auto Filling as been done.\n");
                         break;
                     default:
                         printf("ERROR\n");
@@ -142,14 +143,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     DF *df = create_empty_dataframe(num_columns); // Renamed to DF
     fill_dataframe(df, titles, num_columns);
 
-    insert_value(df->columns[0], 1);
+    /*insert_value(df->columns[0], 1);
     insert_value(df->columns[0], 17);
     insert_value(df->columns[0], 24);
     insert_value(df->columns[0], 16);
     insert_value(df->columns[0], 72);
     insert_value(df->columns[1], 1234);
     insert_value(df->columns[2], 167);
-
+    */
+    auto_fill_dataframe(df, 5);
     print_dataframe(df); // Renamed to DF
 
     for (int i = 0; i < num_columns; i++) {

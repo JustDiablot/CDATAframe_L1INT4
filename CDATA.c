@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "CDATA.h"
+#include "column.h"
 
 DF *create_empty_dataframe(int nb_columns) {
     // Allocate memory for the DataFrame structure
@@ -48,5 +49,13 @@ void print_dataframe(DF *df) {
             }
         }
         printf("\n");
+    }
+}
+
+void auto_fill_dataframe(DF *df, int nb_rows) {
+    for (int i = 0; i < nb_rows; i++) {
+        for (int j = 0; j < df->nb_columns; j++) {
+            insert_value(df->columns[j], rand() % 100);
+        }
     }
 }
