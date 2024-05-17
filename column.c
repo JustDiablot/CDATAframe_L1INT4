@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "column.h"
-
+#include <unistd.h>
 #define REALOC_SIZE 256
 
 //4.1.1
@@ -60,5 +60,10 @@ void delete_column(COLUMN **c) {
     // Set the pointer to NULL for optimization purposes
     *c = NULL;
 }
+
+void clear() {
+    printf("%c2J", 27);
+}
+
 
 
