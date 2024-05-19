@@ -20,14 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df0169bc-38ac-4cdb-8a89-a7fc04724d96" name="Changes" comment="first modification">
-      <change afterPath="$PROJECT_DIR$/.idea/CDATAframe_L1INT4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-    </list>
+    <list default="true" id="df0169bc-38ac-4cdb-8a89-a7fc04724d96" name="Changes" comment="advanced main and reset compilator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +122,7 @@
       <workItem from="1711709963598" duration="1710000" />
       <workItem from="1711711710842" duration="1265000" />
       <workItem from="1716109266118" duration="33000" />
-      <workItem from="1716109307778" duration="649000" />
+      <workItem from="1716109307778" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="first modification">
       <option name="closed" value="true" />
@@ -139,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711710589387</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="advanced main and reset compilator">
+      <option name="closed" value="true" />
+      <created>1716109998585</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716109998585</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +177,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="first modification" />
+    <MESSAGE value="advanced main and reset compilator" />
+    <option name="LAST_COMMIT_MESSAGE" value="advanced main and reset compilator" />
   </component>
 </project>

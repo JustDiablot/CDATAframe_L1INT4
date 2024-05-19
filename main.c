@@ -53,7 +53,7 @@ int main() {
             }
             switch (new_choice) {
                 case 1:
-                    printf("Which column do you want to fill (0 to %d):\n", nb_col - 1);
+                    printf("Which column do you want to fill (0 to %d):\n", nb_col-1);
                 int col_index;
                 scanf("%d", &col_index);
                 if (col_index < 0 || col_index >= nb_col) {
@@ -68,6 +68,7 @@ int main() {
                     scanf("%d", &value);
                     insert_value(df->columns[col_index], value);
                 }
+                printf("The values has been inserted !\n");
                 break;
                 case 2:
                     auto_fill_dataframe(df, 10);
