@@ -5,24 +5,33 @@ Project in C S2 EFREI Paris (Oscar MASDUPUY &amp; Valentin AUFFRAY)
 
 ## 📚 Table of contents
 - [Introduction](#introduction)
-- [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
 - [Contributors](#contributors)
 
 ## 📖 Introduction <a name="introduction"></a>
 This project is a C library that allows you to manipulate dataframes. It is a project for the C module of the EFREI Paris school. The library is called CDATAframe.
-
-## 🛠 Installation <a name="installation"></a>
-To install the library, you must first clone the repository. Then, you must compile the library with the following command:
-```bash
-make
-```
 
 ## 🚀 Usage <a name="usage"></a>
 To use the library, you must include the header file in your project:
 ```c
 #include "cdataframe.h"
 ```
+
+## 🎨 Features <a name="features"></a>
+- [x] Create a dataframe
+- [x] Add a column
+- [x] Add a row
+- [x] Remove a column
+- [x] Remove a row
+- [x] Fill a dataframe manually and automatically
+- [x] Display a dataframe
+- [x] Simple statistics
+- [x] Save a dataframe in a .csv file
+
+
+
+
 
 ## 👨‍💻 Contributors <a name="contributors"></a>
 - [Oscar MASDUPUY](https://www.linkedin.com/in/oscar-masdupuy-375246250/)
