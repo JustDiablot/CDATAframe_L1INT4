@@ -21,6 +21,9 @@ void add_column_to_dataframe(DF *df, COLUMN *col);
 void delete_column_from_dataframe(DF *df, int column_index);
 void add_column(DF *df);
 void delete_column_use(DF *df);
+void print_titles(COLUMN **columns, int nb_columns);
+void change_column_name(COLUMN *col, const char *new_name);
+void rename_column(DF *df);
 void save_as_csv(DF *df);
 
 

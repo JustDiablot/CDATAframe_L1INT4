@@ -65,7 +65,6 @@ void delete_column(COLUMN **c) {
 void clear() {
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
-
 int remove_value_at_index(COLUMN *col, int index) {
     if (index < 0 || index >= col->lsize) {
         printf("Index out of bounds\n");
