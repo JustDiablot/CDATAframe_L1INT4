@@ -91,6 +91,11 @@ int remove_value_at_index(COLUMN *col, int index) {
     return 0;
 }
 
+void print_titles(COLUMN **columns, int nb_columns) {
+    for (int i = 0; i < nb_columns; i++) {
+        printf("%d - %s\n", i, columns[i]->title);
+    }
+}
 
 
 
