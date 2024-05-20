@@ -146,7 +146,7 @@ int main() {
                             printf("Added a column successfully\n");
                             break;
                         case 4:
-                            delete_column(df);
+                            delete_column_use(df);
                             printf("Deleted the column successfully\n");
                             break;
                         case 5:

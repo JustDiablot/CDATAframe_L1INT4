@@ -193,9 +193,9 @@ void delete_column_from_dataframe(DF *df, int column_index) {
 void add_column(DF *df) {
     char column_title[100];
     printf("Enter column title: ");
-    scanf("%99s", column_title);  // Read the column title from user input
+    scanf("%99s", column_title);
 
-    COLUMN *new_column = create_column(column_title);  // Assume create_column initializes a new column
+    COLUMN *new_column = create_column(column_title);
     if (new_column == NULL) {
         printf("Failed to create new column.\n");
         return;
@@ -204,7 +204,8 @@ void add_column(DF *df) {
     add_column_to_dataframe(df, new_column);
     printf("Column added successfully.\n");
 }
-void delete_column(DF *df) {
+
+void delete_column_use(DF *df) {
     int column_index;
     printf("Enter the index of the column to delete: ");
     scanf("%d", &column_index);
@@ -250,4 +251,3 @@ void save_as_csv(DF *df) {
 
     fclose(f);
 }
-

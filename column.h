@@ -18,6 +18,8 @@ void delete_column(COLUMN **col);
 void clear();
 int remove_value_at_index(COLUMN *col, int index);
 void print_titles(COLUMN **columns, int nb_columns);
+void change_column_name(COLUMN *col, const char *new_name);
+
 
 
 #endif // CDATAFRAME_H

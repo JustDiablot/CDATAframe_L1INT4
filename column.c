@@ -3,6 +3,7 @@
 #include <string.h>
 #include "column.h"
 #include <unistd.h>
+#include "CDATA.h"
 #define REALOC_SIZE 256
 
 //4.1.1
@@ -96,3 +97,31 @@ void print_titles(COLUMN **columns, int nb_columns) {
         printf("%d - %s\n", i, columns[i]->title);
     }
 }
+
+void change_column_name(COLUMN *col, const char *new_name) {
+    if (col->title) {
+        free(col->title);
+    }
+    col->title = (char *)malloc(strlen(new_name) + 1);
+    if (col->title) {
+        strcpy(col->title, new_name);
+    } else {
+        printf("Memory allocation failed for new column name.\n");
+    }
+}
+void rename_column(DF *df) {
+    int column_index;
+    char new_name[100];
+
+    printf("Enter the index of the column to rename: ");
+    scanf("%d", &column_index);
+    if (column_index < 0 || column_index >= df->nb_columns) {
+        printf("Column index out of bounds.\n");
+        return;
+    }
+    printf("Enter the new name for the column: ");
+    scanf("%99s", new_name);
+    change_column_name(df->columns[column_index], new_name);
+    printf("Column name changed successfully.\n");
+}
+
