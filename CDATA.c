@@ -101,3 +101,15 @@ void display_limited_columns(DF *df, int limit) {
         print_col(df->columns[i]);  // Assuming print_col() is a function that prints a column
     }
 }
+
+void add_row_to_dataframe(DF *df, int *row_values) {
+    for (int i = 0; i < df->nb_columns; i++) {
+        insert_value(df->columns[i], row_values[i]);  // Assuming insert_value() adds a value to a column
+    }
+}
+void delete_row_from_dataframe(DF *df, int row_index) {
+    for (int i = 0; i < df->nb_columns; i++) {
+        remove_value_at_index(df->columns[i], row_index);  // Assuming remove_value_at_index() removes a value at a specific index
+    }
+}
+

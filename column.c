@@ -64,6 +64,33 @@ void delete_column(COLUMN **c) {
 void clear() {
     printf("%c2J", 27);
 }
+int remove_value_at_index(COLUMN *col, int index) {
+    if (index < 0 || index >= col->lsize) {
+        printf("Index out of bounds\n");
+        return -1;
+    }
+
+
+    for (int i = index; i < col->lsize - 1; i++) {
+        col->data[i] = col->data[i + 1];
+    }
+    col->lsize--;
+
+
+    if (col->psize - col->lsize > REALOC_SIZE) {
+        int new_size = col->lsize + REALOC_SIZE;
+        int *new_data = realloc(col->data, new_size * sizeof(int));
+        if (new_data == NULL) {
+            printf("Memory reallocation error\n");
+            return -1;
+        }
+        col->data = new_data;
+        col->psize = new_size;
+    }
+
+    return 0;
+}
+
 
 
 

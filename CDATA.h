@@ -13,5 +13,8 @@ void print_dataframe(DF *df);
 void auto_fill_dataframe(DF *df, int num_rows);
 void print_partial_dataframe(DF *df, int row_limit);
 void display_limited_columns(DF *df, int limit);
+void add_row_to_dataframe(DF *df, int *row_values);
+void delete_row_from_dataframe(DF *df, int row_index);
+
 
 #endif //CDATAFRAME_CDATA_H

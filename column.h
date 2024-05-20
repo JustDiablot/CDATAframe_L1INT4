@@ -16,5 +16,7 @@ int insert_value(COLUMN *c, int value);
 void print_col(COLUMN *c);
 void delete_column(COLUMN **col);
 void clear();
+int remove_value_at_index(COLUMN *col, int index);
+
 
 #endif // CDATAFRAME_H

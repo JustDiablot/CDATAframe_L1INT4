@@ -20,11 +20,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df0169bc-38ac-4cdb-8a89-a7fc04724d96" name="Changes" comment="partial print of the datafram">
+    <list default="true" id="df0169bc-38ac-4cdb-8a89-a7fc04724d96" name="Changes" comment="partial print of the dataframe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CDATA.c" beforeDir="false" afterPath="$PROJECT_DIR$/CDATA.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CDATA.h" beforeDir="false" afterPath="$PROJECT_DIR$/CDATA.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/column.c" beforeDir="false" afterPath="$PROJECT_DIR$/column.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/column.h" beforeDir="false" afterPath="$PROJECT_DIR$/column.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +129,7 @@
       <workItem from="1711711710842" duration="1265000" />
       <workItem from="1716109266118" duration="33000" />
       <workItem from="1716109307778" duration="1718000" />
-      <workItem from="1716123530202" duration="5504000" />
+      <workItem from="1716123530202" duration="6370000" />
     </task>
     <task id="LOCAL-00001" summary="first modification">
       <option name="closed" value="true" />
@@ -162,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716210401843</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="partial print of the dataframe">
+      <option name="closed" value="true" />
+      <created>1716211856306</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716211856306</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +211,7 @@
     <MESSAGE value="advanced main and reset compilator" />
     <MESSAGE value="little changes" />
     <MESSAGE value="partial print of the datafram" />
-    <option name="LAST_COMMIT_MESSAGE" value="partial print of the datafram" />
+    <MESSAGE value="partial print of the dataframe" />
+    <option name="LAST_COMMIT_MESSAGE" value="partial print of the dataframe" />
   </component>
 </project>
