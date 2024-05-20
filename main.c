@@ -135,12 +135,30 @@ int main() {
                     switch(lechoix){
                         case 1:
                             add_row(df);
-                        printf("Added a new row succesfully\n");
+                            printf("Added a new row successfully\n");
                             break;
                         case 2:
                             delete_row(df);
-                        printf("Deleted the row succesfully\n");
+                            printf("Deleted the row succesfully\n");
                             break;
+                        case 3:
+                            add_column(df);
+                            printf("Added a column successfully\n");
+                            break;
+                        case 4:
+                            delete_column(df);
+                            printf("Deleted the column successfully\n");
+                            break;
+                        case 5:
+
+                            break;
+                        case 6:
+
+                            break;
+                        case 7:
+
+                            break;
+
 
                         default:
                             printf("ERROR\n");

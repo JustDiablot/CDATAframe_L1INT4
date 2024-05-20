@@ -19,6 +19,8 @@ void add_row(DF *df);
 void delete_row(DF *df);
 void add_column_to_dataframe(DF *df, COLUMN *col);
 void delete_column_from_dataframe(DF *df, int column_index);
+void add_column(DF *df);
+void delete_column(DF *df);
 void save_as_csv(DF *df);
 
 
