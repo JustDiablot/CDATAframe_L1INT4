@@ -17,6 +17,9 @@ void add_row_to_dataframe(DF *df, int *row_values);
 void delete_row_from_dataframe(DF *df, int row_index);
 void add_row(DF *df);
 void delete_row(DF *df);
+void add_column_to_dataframe(DF *df, COLUMN *col);
+void delete_column_from_dataframe(DF *df, int column_index);
+
 
 
 #endif //CDATAFRAME_CDATA_H
