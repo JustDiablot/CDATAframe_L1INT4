@@ -88,7 +88,7 @@ int main() {
                     printf("1 - Display the entire Data frame\n");
                     printf("2 - Display a part of the Data frame rows\n");
                     printf("3 - Display a part of the Data frame columns\n");
-                    printf("4 - Display the column names\n")
+                    printf("4 - Display the column names\n");
                     printf("Choose your option :\n");
                     scanf("%d", &var);
                     switch (var) {

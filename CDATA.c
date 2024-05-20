@@ -158,3 +158,36 @@ void delete_row(DF *df) {
     delete_row_from_dataframe(df, row_index);
 }
 
+void add_column_to_dataframe(DF *df, COLUMN *col) {
+    if (df->nb_columns % REALOC_SIZE == 0) {
+        COLUMN **new_columns = realloc(df->columns, (df->nb_columns + REALOC_SIZE) * sizeof(COLUMN *));
+        if (new_columns == NULL) {
+            printf("Memory reallocation failed\n");
+            return;
+        }
+        df->columns = new_columns;
+    }
+    df->columns[df->nb_columns++] = col;
+}
+void delete_column_from_dataframe(DF *df, int column_index) {
+    if (column_index < 0 || column_index >= df->nb_columns) {
+        printf("Column index out of bounds\n");
+        return;
+    }
+    delete_column(&df->columns[column_index]);
+    for (int i = column_index; i < df->nb_columns - 1; i++) {
+        df->columns[i] = df->columns[i + 1];
+    }
+    df->nb_columns--;
+
+    // Shrink the array if needed
+    if ((df->nb_columns % REALOC_SIZE) == 0 && df->nb_columns > 0) {
+        COLUMN **new_columns = realloc(df->columns, df->nb_columns * sizeof(COLUMN *));
+        if (new_columns == NULL) {
+            printf("Memory reallocation failed\n");
+            return;
+        }
+        df->columns = new_columns;
+    }
+}
+
