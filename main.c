@@ -82,7 +82,32 @@ int main() {
 
             case 3:
                 if (df != NULL) {
-                    print_dataframe(df);
+                    int var = 0;
+                    printf("1 - Display the entire Data frame\n");
+                    printf("2 - Display a part of the Data frame rows\n");
+                    printf("3 - Display a part of the Data frame columns\n");
+                    printf("Choose your option :\n");
+                    scanf("%d", &var);
+                    switch (var) {
+                        case 1:
+                            print_dataframe(df);
+                            break;
+                        case 2:
+                            printf("Enter the number of rows to display: ");
+                            scanf("%d", &nb_row);
+                            display_limited_rows(df, nb_row);
+                            break;
+
+                        case 3:
+                            printf("Enter the number of columns to display: ");
+                            scanf("%d", &limit);
+                            display_limited_columns(df, limit);
+                            break;
+
+                        default:
+                            printf("ERROR\n");
+                            break;
+                    }
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
