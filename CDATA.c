@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "CDATA.h"
+
+#include <bemapiset.h>
+
 #include "column.h"
 
 DF *create_empty_dataframe(int nb_columns) {
@@ -57,5 +60,44 @@ void auto_fill_dataframe(DF *df, int nb_rows) {
         for (int j = 0; j < df->nb_columns; j++) {
             insert_value(df->columns[j], rand() % 100);
         }
+    }
+}
+
+void print_partial_dataframe(DF *df, int row_limit) {
+    if(df ==NULL) {
+        printf("DataFrame does not exist or is empty\n");
+        return;
+    }
+    int max_row=0;
+
+    for(int i= 0;i< df->nb_columns;i++) {
+        if(df->nb_columns[i]->lsize > max_row) {
+            max_row = df->columns[i]->lsize;
+        }
+    }
+    max_row = (row_limit < max_row) ? row_limit : max_row;
+
+    printf("Printing the first %d rows\n", max_row);
+    for(int i=0; i<df->nb_columns;i++) {
+        printf("%s\t", df->columns[i]->title);
+    }
+    printf("\n");
+    for(int row = 0; row<max_row; row++) {
+        for(int col = 0; col<df->nb_columns;col++) {
+            if (row < df->columns[col]->lsize) {
+                printf("%d\t", df->columns[col]->data[row]);
+            } else {
+                printf("\t");
+            }
+        }
+        printf("\n");
+        }
+    }
+
+
+void display_limited_columns(DF *df, int limit) {
+    printf("Displaying first %d columns of the DataFrame:\n", limit);
+    for (int i = 0; i < limit && i < df->nb_columns; i++) {
+        print_col(df->columns[i]);  // Assuming print_col() is a function that prints a column
     }
 }
