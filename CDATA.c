@@ -214,7 +214,32 @@ void delete_column_use(DF *df) {
     printf("Column deleted successfully.\n");
 }
 
+void change_column_name(COLUMN *col, const char *new_name) {
+    if (col->title) {
+        free(col->title);
+    }
+    col->title = (char *)malloc(strlen(new_name) + 1);
+    if (col->title) {
+        strcpy(col->title, new_name);
+    } else {
+        printf("Memory allocation failed for new column name.\n");
+    }
+}
+void rename_column(DF *df) {
+    int column_index;
+    char new_name[100];
 
+    printf("Enter the index of the column to rename: ");
+    scanf("%d", &column_index);
+    if (column_index < 0 || column_index >= df->nb_columns) {
+        printf("Column index out of bounds.\n");
+        return;
+    }
+    printf("Enter the new name for the column: ");
+    scanf("%99s", new_name);
+    change_column_name(df->columns[column_index], new_name);
+
+}
 
 void save_as_csv(DF *df) {
     FILE *f = fopen("dataframe.csv", "w");

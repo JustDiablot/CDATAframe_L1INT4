@@ -129,8 +129,8 @@ int main() {
                            "\n3 - Add a column to the Dataframe"
                            "\n4 - Delete a column from the Dataframe"
                            "\n5 - Rename the title of a column in the Dataframe"
-                           "\n6 - Check the existence of a value in the Dataframe"
-                           "\n7 - Replace a value in the Dataframe cell using its row and column number\nChoose your option :\n");
+                           "\n6 - Replace a value in the Dataframe cell using its row and column number"
+                           "\nChoose your option :\n");
                     scanf("%d",&lechoix);
                     switch(lechoix){
                         case 1:
@@ -150,15 +150,13 @@ int main() {
                             printf("Deleted the column successfully\n");
                             break;
                         case 5:
+                            rename_column(df);
+                            printf("Column name changed successfully.\n");
 
                             break;
                         case 6:
 
                             break;
-                        case 7:
-
-                            break;
-
 
                         default:
                             printf("ERROR\n");
