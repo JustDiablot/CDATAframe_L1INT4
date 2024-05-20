@@ -90,7 +90,7 @@ int main() {
 
             case 4:
                 if (df != NULL) {
-                    int ew_choice=0;
+                    int new_choice=0;
                 } else {
                     printf("Data frame is not created yet.\n");
                 }

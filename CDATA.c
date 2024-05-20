@@ -93,3 +93,11 @@ void print_partial_dataframe(DF *df, int row_limit) {
         printf("\n");
         }
     }
+
+
+void display_limited_columns(DF *df, int limit) {
+    printf("Displaying first %d columns of the DataFrame:\n", limit);
+    for (int i = 0; i < limit && i < df->nb_columns; i++) {
+        print_col(df->columns[i]);  // Assuming print_col() is a function that prints a column
+    }
+}
