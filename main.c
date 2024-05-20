@@ -3,7 +3,11 @@
 #include <windows.h>
 #include "column.h"
 #include "CDATA.h"
+#include <unistd.h>
 
+void clear_screen() {
+    system("cls");
+}
 
 int main() {
     int start = 0;
@@ -16,6 +20,7 @@ int main() {
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
     while (start == 0) {
         while (choice < 1 || choice > 6) {
+            clear();
             printf("Choose your option :\n");
             printf("1 - Create a new Data frame\n");
             printf("2 - Fill the Data frame\n");
