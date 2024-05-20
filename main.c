@@ -13,6 +13,7 @@ int main() {
     char **titles = NULL;
     DF *df = NULL;
     int lechoix=0;
+    int m=0;
 
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
     while (start == 0) {
@@ -88,7 +89,7 @@ int main() {
                     printf("1 - Display the entire Data frame\n");
                     printf("2 - Display a part of the Data frame rows\n");
                     printf("3 - Display a part of the Data frame columns\n");
-                    printf("4 - Display the column names\n")
+                    printf("4 - Display the column names\n");
                     printf("Choose your option :\n");
                     scanf("%d", &var);
                     switch (var) {
@@ -152,8 +153,66 @@ int main() {
 
             case 5:
                 if (df != NULL) {
-                    // Implement your logic to analyze the DataFrame
-                    printf("Analyze the Data frame functionality is not yet implemented.\n");
+                    printf("1 - Display the number of rows\n");
+                    printf("2 - Display the number of columns\n");
+                    printf("3 - Display the number of cells equal to x\n");
+                    printf("4 - Display the number of cells containing a value greater than x\n");
+                    printf("5 - Display the number of cells containing a value less than x\n");
+                    printf("Choose your option :\n");
+                    scanf("%d", &m);
+                    switch (m){
+                        case 1:
+                            printf("The number of rows is %d\n", df->columns[0]->lsize);
+                            break;
+                        case 2:
+                            printf("The number of columns is %d\n", df->nb_columns);
+                            break;
+                        case 3:
+                            printf("Enter the value of x: ");
+                            int x;
+                            scanf("%d", &x);
+                            int count = 0;
+                            for (i = 0; i < df->nb_columns; i++) {
+                                for (int j = 0; j < df->columns[i]->lsize; j++) {
+                                    if (df->columns[i]->data[j] == x) {
+                                        count++;
+                                    }
+                                }
+                            }
+                            printf("The number of cells equal to %d is %d\n", x, count);
+                            break;
+                        case 4:
+                            printf("Enter the value of x: ");
+                            int x1;
+                            scanf("%d", &x1);
+                            int count1 = 0;
+                            for (i = 0; i < df->nb_columns; i++) {
+                                for (int j = 0; j < df->columns[i]->lsize; j++) {
+                                    if (df->columns[i]->data[j] > x1) {
+                                        count1++;
+                                    }
+                                }
+                            }
+                            printf("The number of cells containing a value greater than %d is %d\n", x1, count1);
+                            break;
+                        case 5:
+                            printf("Enter the value of x: ");
+                            int x2;
+                            scanf("%d", &x2);
+                            int count2 = 0;
+                            for (i = 0; i < df->nb_columns; i++) {
+                                for (int j = 0; j < df->columns[i]->lsize; j++) {
+                                    if (df->columns[i]->data[j] < x2) {
+                                        count2++;
+                                    }
+                                }
+                            }
+                            printf("The number of cells containing a value less than %d is %d\n", x2, count2);
+                            break;
+                        default:
+                            printf("ERROR\n");
+                            break;
+                    }
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
