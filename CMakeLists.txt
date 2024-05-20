@@ -8,4 +8,6 @@ include_directories(.)
 add_executable(CDATAframe_L1INT4
         main.c
         column.c
-        CDATA.c)
+        CDATA.c
+        modify.c
+)
