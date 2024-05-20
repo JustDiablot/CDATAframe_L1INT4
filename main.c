@@ -228,7 +228,7 @@ int main() {
                     for (i = 0; i < df->nb_columns; i++) {
                         fprintf(f, "%s", df->columns[i]->title);
                         if (i != df->nb_columns - 1) {
-                            fprintf(f, ",");
+                            fprintf(f, ";");
                         }
                     }
                     fprintf(f, "\n");
@@ -242,13 +242,16 @@ int main() {
                         for (int col = 0; col < df->nb_columns; col++) {
                             if (row < df->columns[col]->lsize) {
                                 fprintf(f, "%d", df->columns[col]->data[row]);
+                            } else {
+                                fprintf(f, " "); // Write a blank space if the column doesn't have a value for this row
                             }
                             if (col != df->nb_columns - 1) {
-                                fprintf(f, ",");
+                                fprintf(f, ";");
                             }
                         }
                         fprintf(f, "\n");
                     }
+
                     fclose(f);
                     printf("Data frame has been saved to dataframe.csv\n");
                 } else {
