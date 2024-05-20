@@ -50,7 +50,7 @@ int main() {
                 new_choice = 0;
             while (new_choice < 1 || new_choice > 2) {
                 printf("1 - Fill the Data Frame\n");
-                printf("2 - Fill the Data Frame with random values\n");
+                printf("2 - Fill the Data Frame with random values\nChoose your option :\n");
                 scanf("%d", &new_choice);
             }
             switch (new_choice) {
@@ -129,7 +129,7 @@ int main() {
                            "\n4 - Delete a column from the Dataframe"
                            "\n5 - Rename the title of a column in the Dataframe"
                            "\n6 - Check the existence of a value in the Dataframe"
-                           "\n7 - Replace a value in the Dataframe cell using its row and column number\n");
+                           "\n7 - Replace a value in the Dataframe cell using its row and column number\nChoose your option :\n");
                     scanf("%d",&lechoix);
                     switch(lechoix){
                         case 1:
