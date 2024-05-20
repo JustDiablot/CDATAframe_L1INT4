@@ -17,6 +17,7 @@ void print_col(COLUMN *c);
 void delete_column(COLUMN **col);
 void clear();
 int remove_value_at_index(COLUMN *col, int index);
+void print_titles(COLUMN **columns, int nb_columns);
 
 
 #endif // CDATAFRAME_H
