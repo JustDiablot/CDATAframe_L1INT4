@@ -96,6 +96,3 @@ void print_titles(COLUMN **columns, int nb_columns) {
         printf("%d - %s\n", i, columns[i]->title);
     }
 }
-
-
-
