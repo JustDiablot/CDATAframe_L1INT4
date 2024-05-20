@@ -1,0 +1,6 @@
+./cmake-build-debug
+./.vscode
+CMakeLists.txt
+./build
+./.idea
+./.workspace.xml

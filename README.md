@@ -3,24 +3,36 @@ Project in C S2 EFREI Paris (Oscar MASDUPUY &amp; Valentin AUFFRAY)
 
 ## [👉 visit our github 👈](https://github.com/JustDiablot/CDATAframe_L1INT4) 
 
+## 📚 Table of contents
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributors](#contributors)
 
-## Functions
-### COLUMN *create_column(char *title)
-Creates a new column with the given title.
+## 📖 Introduction <a name="introduction"></a>
+This project is a C library that allows you to manipulate dataframes. It is a project for the C module of the EFREI Paris school. The library is called CDATAframe.
 
-### int insert_value(COLUMN *col, int value)
-Inserts a value into the specified column.
+## 🚀 Usage <a name="usage"></a>
+To use the library, you must include the header file in your project:
+```c
+#include "cdataframe.h"
+```
 
-### void print_col(COLUMN *col)
-Prints the content of the specified column.
+## 🎨 Features <a name="features"></a>
+- [x] Create a dataframe
+- [x] Add a column
+- [x] Add a row
+- [x] Remove a column
+- [x] Remove a row
+- [x] Fill a dataframe manually and automatically
+- [x] Display a dataframe
+- [x] Simple statistics
+- [x] Save a dataframe in a .csv file
 
-### DF *create_empty_dataframe(int num_columns)
-Creates an empty dataframe with the specified number of columns.
 
-### void fill_dataframe(DF *df, char **titles, int num_columns)
-Fills the dataframe with columns using the provided titles.
 
-### void print_dataframe(DF *df)
-Prints the content of the dataframe.
 
-# New functionalities are coming soon ...
+
+## 👨‍💻 Contributors <a name="contributors"></a>
+- [Oscar MASDUPUY](https://www.linkedin.com/in/oscar-masdupuy-375246250/)
+- [Valentin AUFFRAY](https://www.linkedin.com/in/valentin-auffray-024230251/)
