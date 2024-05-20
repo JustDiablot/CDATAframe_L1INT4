@@ -26,6 +26,7 @@ void change_column_name(COLUMN *col, const char *new_name);
 void rename_column(DF *df);
 void access_or_replace_cell_value(DF *df, int row, int col);
 void save_as_csv(DF *df);
+void getch();
 
 
 #endif //CDATAFRAME_CDATA_H

@@ -299,3 +299,9 @@ void save_as_csv(DF *df) {
 
     fclose(f);
 }
+
+void getch() {
+    printf("\n\nPress ENTER to continue...\n");
+    getchar();
+    getchar();
+}

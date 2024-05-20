@@ -14,11 +14,12 @@ int main() {
     DF *df = NULL;
     int lechoix=0;
     int m=0;
-    int sum = 0;    int sum1 = 0;    int sum2 = 0;    int sum3 = 0;    int col_index = 0;    int col_index1 = 0;    int col_index2 = 0;    int col_index3 = 0;    int min = 0;    int max = 0;    int min1 = 0;    int max1 = 0;    int count = 0;    int l = 0;    int j = 0;
+    int sum; int col_index = 0;  int min;    int max;   int count;    int l = 0;    int j = 0;
 
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
     while (start == 0) {
         while (choice < 1 || choice > 8) {
+            clear();
             printf("Choose your option :\n");
             printf("1 - Create a new Data frame\n");
             printf("2 - Fill the Data frame\n");
@@ -48,6 +49,7 @@ int main() {
                 }
                 fill_dataframe(df, titles, nb_col);
                 printf("Your Data Frame has been created\n");
+                getch();
                 break;
 
             case 2:
@@ -77,14 +79,17 @@ int main() {
                             insert_value(df->columns[col_index], value);
                         }
                         printf("The values has been inserted !\n");
+                        getch();
                         break;
                     case 2:
                         clear();
                         auto_fill_dataframe(df, 10);
                         printf("Auto Filling has been done.\n");
+                        getch();
                         break;
                     default:
                         printf("ERROR\n");
+                        getch();
                         break;
                 }
                 break;
@@ -104,12 +109,14 @@ int main() {
                         case 1:
                             clear();
                             print_dataframe(df);
+                            getch();
                             break;
                         case 2:
                             clear();
                             printf("Enter the number of rows to display: ");
                             scanf("%d", &nb_row);
                             display_limited_rows(df, nb_row);
+                            getch();
                             break;
 
                         case 3:
@@ -117,19 +124,23 @@ int main() {
                             printf("Enter the number of columns to display: ");
                             scanf("%d", &limit);
                             display_limited_columns(df, limit);
+                            getch();
                             break;
 
                         case 4:
                             clear();
                             print_titles(df->columns, df->nb_columns);
+                            getch();
                             break;
 
                         default:
                             printf("ERROR\n");
+                            getch();
                             break;
                     }
                 } else {
                     printf("Data frame is not created yet.\n");
+                    getch();
                 }
                 break;
 
@@ -149,27 +160,31 @@ int main() {
                             clear();
                             add_row(df);
                             printf("Added a new row successfully\n");
+                            getch();
                             break;
                         case 2:
                             clear();
                             delete_row(df);
                             printf("Deleted the row succesfully\n");
+                            getch();
                             break;
                         case 3:
                             clear();
                             add_column(df);
                             printf("Added a column successfully\n");
+                            getch();
                             break;
                         case 4:
                             clear();
                             delete_column_use(df);
                             printf("Deleted the column successfully\n");
+                            getch();
                             break;
                         case 5:
                             clear();
                             rename_column(df);
                             printf("Column name changed successfully.\n");
-
+                            getch();
                             break;
                         case 6:
                             clear();
@@ -179,15 +194,19 @@ int main() {
                             printf("Enter column number: ");
                             scanf("%d", &col);
                             access_or_replace_cell_value(df, row, col);
+                            printf("Value accessed or replaced successfully.\n");
+                            getch();
                             break;
 
                         default:
                             printf("ERROR\n");
+                            getch();
                             break;
                     }
 
                 } else {
                     printf("Data frame is not created yet.\n");
+                    getch();
                 }
                 break;
 
@@ -205,10 +224,12 @@ int main() {
                         case 1:
                             clear();
                             printf("The number of rows is %d\n", df->columns[0]->lsize);
+                            getch();
                             break;
                         case 2:
                             clear();
                             printf("The number of columns is %d\n", df->nb_columns);
+                            getch();
                             break;
                         case 3:
                             clear();
@@ -224,6 +245,7 @@ int main() {
                                 }
                             }
                             printf("The number of cells equal to %d is %d\n", x, count);
+                            getch();
                             break;
                         case 4:
                             clear();
@@ -239,6 +261,7 @@ int main() {
                                 }
                             }
                             printf("The number of cells containing a value greater than %d is %d\n", x1, count1);
+                            getch();
                             break;
                         case 5:
                             clear();
@@ -254,13 +277,16 @@ int main() {
                                 }
                             }
                             printf("The number of cells containing a value less than %d is %d\n", x2, count2);
+                            getch();
                             break;
                         default:
                             printf("ERROR\n");
+                            getch();
                             break;
                     }
                 } else {
                     printf("Data frame is not created yet.\n");
+                    getch();
                 }
                 break;
 
@@ -287,18 +313,20 @@ int main() {
                                 }
                             }
                             printf("The sum of all the values in the Dataframe is %d\n", sum);
+                            getch();
                             break;
                         case 2:
                             clear();
-                            sum1 = 0;
+                            sum = 0;
                             count = 0;
                             for (i = 0; i < df->nb_columns; i++) {
                                 for (int j = 0; j < df->columns[i]->lsize; j++) {
-                                    sum1 += df->columns[i]->data[j];
+                                    sum += df->columns[i]->data[j];
                                     count++;
                                 }
                             }
-                            printf("The average of all the values in the Dataframe is %f\n", (float) sum1 / count);
+                            printf("The average of all the values in the Dataframe is %f\n", (float) sum / count);
+                            getch();
                             break;
                         case 3:
                             clear();
@@ -308,27 +336,27 @@ int main() {
                                 printf("Invalid column index.\n");
                                 break;
                             }
-                            sum2 = 0;
+                            sum = 0;
                             for (i = 0; i < df->columns[col_index]->lsize; i++) {
-                                sum2 += df->columns[col_index]->data[i];
+                                sum += df->columns[col_index]->data[i];
                             }
-                            printf("The average of all the values in column %d is %f\n", col_index,
-                                   (float) sum2 / df->columns[col_index]->lsize);
+                            printf("The average of all the values in column %d is %f\n", col_index,(float) sum / df->columns[col_index]->lsize);
+                            getch();
                             break;
                         case 4:
                             clear();
                             printf("Enter the column index: ");
-                            col_index1;
-                            scanf("%d", &col_index1);
-                            if (col_index1 < 0 || col_index1 >= df->nb_columns) {
+                            scanf("%d", &col_index);
+                            if (col_index < 0 || col_index >= df->nb_columns) {
                                 printf("Invalid column index.\n");
                                 break;
                             }
-                            sum3 = 0;
-                            for (i = 0; i < df->columns[col_index1]->lsize; i++) {
-                                sum3 += df->columns[col_index1]->data[i];
+                            sum = 0;
+                            for (i = 0; i < df->columns[col_index]->lsize; i++) {
+                                sum += df->columns[col_index]->data[i];
                             }
-                            printf("The sum of all the values in column %d is %d\n", col_index1, sum3);
+                            printf("The sum of all the values in column %d is %d\n", col_index, sum);
+                            getch();
                             break;
                         case 5:
                             clear();
@@ -341,6 +369,7 @@ int main() {
                                 }
                             }
                             printf("The maximum value in the Dataframe is %d\n", max);
+                            getch();
                             break;
                         case 6:
                             clear();
@@ -353,46 +382,51 @@ int main() {
                                 }
                             }
                             printf("The minimum value in the Dataframe is %d\n", min);
+                            getch();
                             break;
                         case 7:
                             clear();
                             printf("Enter the column index: ");
-                            scanf("%d", &col_index2);
-                            if (col_index2 < 0 || col_index2 >= df->nb_columns) {
+                            scanf("%d", &col_index);
+                            if (col_index < 0 || col_index >= df->nb_columns) {
                                 printf("Invalid column index.\n");
                                 break;
                             }
-                            max1 = df->columns[col_index2]->data[0];
-                            for (i = 0; i < df->columns[col_index2]->lsize; i++) {
-                                if (df->columns[col_index2]->data[i] > max1) {
-                                    max1 = df->columns[col_index2]->data[i];
+                            max = df->columns[col_index]->data[0];
+                            for (i = 0; i < df->columns[col_index]->lsize; i++) {
+                                if (df->columns[col_index]->data[i] > max) {
+                                    max = df->columns[col_index]->data[i];
                                 }
                             }
-                            printf("The maximum value in column %d is %d\n", col_index2, max1);
+                            printf("The maximum value in column %d is %d\n", col_index, max);
+                            getch();
                             break;
                         case 8:
                             clear();
                             printf("Enter the column index: ");
-                            scanf("%d", &col_index3);
-                            if (col_index3 < 0 || col_index3 >= df->nb_columns) {
+                            scanf("%d", &col_index);
+                            if (col_index < 0 || col_index >= df->nb_columns) {
                                 printf("Invalid column index.\n");
                                 break;
                             }
-                            min1 = df->columns[col_index3]->data[0];
-                            for (i = 0; i < df->columns[col_index3]->lsize; i++) {
-                                if (df->columns[col_index3]->data[i] < min1) {
-                                    min1 = df->columns[col_index3]->data[i];
+                            min = df->columns[col_index]->data[0];
+                            for (i = 0; i < df->columns[col_index]->lsize; i++) {
+                                if (df->columns[col_index]->data[i] < min) {
+                                    min = df->columns[col_index]->data[i];
                                 }
                             }
-                            printf("The minimum value in column %d is %d\n", col_index3, min1);
+                            printf("The minimum value in column %d is %d\n", col_index, min);
+                            getch();
                             break;
                         default:
                             printf("ERROR\n");
+                            getch();
                             break;
 
                     }
                 } else {
                     printf("Data frame is not created yet.\n");
+                    getch();
                 }
                 break;
 
@@ -401,8 +435,10 @@ int main() {
                 if (df != NULL) {
                     save_as_csv(df);
                     printf("Data frame has been saved to dataframe.csv\n");
+                    getch();
                 } else {
                     printf("Data frame is not created yet.\n");
+                    getch();
                 }
                 break;
             case 8:
@@ -413,6 +449,7 @@ int main() {
 
             default:
                 printf("ERROR\n");
+                getch();
                 break;
         }
 
