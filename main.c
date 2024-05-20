@@ -24,7 +24,8 @@ int main() {
             printf("3 - Display the Data frame\n");
             printf("4 - Modify the Data frame\n");
             printf("5 - Analyze the Data frame\n");
-            printf("6 - Exit\n");
+            printf("6 - Save the Data frame as a CSV file\n");
+            printf("7 - Exit\n");
             scanf("%d", &choice);
 
 
@@ -217,8 +218,46 @@ int main() {
                     printf("Data frame is not created yet.\n");
                 }
             break;
-
             case 6:
+                if (df != NULL) {
+                    printf("Enter the name of the file to save the Dataframe as a CSV file: ");
+                    char filename[100];
+                    scanf("%s", filename);
+                    FILE *f = fopen(filename, "w");
+                    if (f == NULL) {
+                        printf("Error opening file.\n");
+                        break;
+                    }
+                    for (i = 0; i < df->nb_columns; i++) {
+                        fprintf(f, "%s", df->columns[i]->title);
+                        if (i != df->nb_columns - 1) {
+                            fprintf(f, ",");
+                        }
+                    }
+                    fprintf(f, "\n");
+                    int max_rows = 0;
+                    for (i = 0; i < df->nb_columns; i++) {
+                        if (df->columns[i]->lsize > max_rows) {
+                            max_rows = df->columns[i]->lsize;
+                        }
+                    }
+                    for (int row = 0; row < max_rows; row++) {
+                        for (int col = 0; col < df->nb_columns; col++) {
+                            if (row < df->columns[col]->lsize) {
+                                fprintf(f, "%d", df->columns[col]->data[row]);
+                            }
+                            if (col != df->nb_columns - 1) {
+                                fprintf(f, ",");
+                            }
+                        }
+                        fprintf(f, "\n");
+                    }
+                    fclose(f);
+                    printf("Dataframe saved as a CSV file.\n");
+                } else {
+                    printf("Data frame is not created yet.\n");
+                }
+            case 7:
                 printf("Exiting...\n");
             start = 1;
             break;
