@@ -36,64 +36,64 @@ int main() {
             case 1:
                 clear();
                 printf("Enter the number of columns :\n");
-            scanf("%d", &nb_col);
-            df = create_empty_dataframe(nb_col);
+                scanf("%d", &nb_col);
+                df = create_empty_dataframe(nb_col);
 
-            titles = (char **)malloc(nb_col * sizeof(char *));
-            printf("Enter the name of your columns :\n");
-            for (i = 0; i < nb_col; i++) {
-                titles[i] = (char *)malloc(100 * sizeof(char)); // Assuming max column name length is 100
-                printf("Column %d name: ", i + 1);
-                scanf("%s", titles[i]);
-            }
-            fill_dataframe(df, titles, nb_col);
-            printf("Your Data Frame has been created\n");
-            break;
+                titles = (char **) malloc(nb_col * sizeof(char *));
+                printf("Enter the name of your columns :\n");
+                for (i = 0; i < nb_col; i++) {
+                    titles[i] = (char *) malloc(100 * sizeof(char)); // Assuming max column name length is 100
+                    printf("Column %d name: ", i + 1);
+                    scanf("%s", titles[i]);
+                }
+                fill_dataframe(df, titles, nb_col);
+                printf("Your Data Frame has been created\n");
+                break;
 
             case 2:
                 clear();
                 new_choice = 0;
-            while (new_choice < 1 || new_choice > 2) {
-                printf("1 - Fill the Data Frame\n");
-                printf("2 - Fill the Data Frame with random values\nChoose your option :\n");
-                scanf("%d", &new_choice);
-            }
-            switch (new_choice) {
-                case 1:
-                    clear();
-                    printf("Which column do you want to fill (0 to %d):\n", nb_col-1);
-                int col_index;
-                scanf("%d", &col_index);
-                if (col_index < 0 || col_index >= nb_col) {
-                    printf("Invalid column index.\n");
-                    break;
+                while (new_choice < 1 || new_choice > 2) {
+                    printf("1 - Fill the Data Frame\n");
+                    printf("2 - Fill the Data Frame with random values\nChoose your option :\n");
+                    scanf("%d", &new_choice);
                 }
-                printf("How many rows do you want to fill :\n");
-                scanf("%d", &nb_row);
-                for (i = 0; i < nb_row; i++) {
-                    int value;
-                    printf("Enter value for row %d: ", i + 1);
-                    scanf("%d", &value);
-                    insert_value(df->columns[col_index], value);
+                switch (new_choice) {
+                    case 1:
+                        clear();
+                        printf("Which column do you want to fill (0 to %d):\n", nb_col - 1);
+                        int col_index;
+                        scanf("%d", &col_index);
+                        if (col_index < 0 || col_index >= nb_col) {
+                            printf("Invalid column index.\n");
+                            break;
+                        }
+                        printf("How many rows do you want to fill :\n");
+                        scanf("%d", &nb_row);
+                        for (i = 0; i < nb_row; i++) {
+                            int value;
+                            printf("Enter value for row %d: ", i + 1);
+                            scanf("%d", &value);
+                            insert_value(df->columns[col_index], value);
+                        }
+                        printf("The values has been inserted !\n");
+                        break;
+                    case 2:
+                        clear();
+                        auto_fill_dataframe(df, 10);
+                        printf("Auto Filling has been done.\n");
+                        break;
+                    default:
+                        printf("ERROR\n");
+                        break;
                 }
-                printf("The values has been inserted !\n");
                 break;
-                case 2:
-                    clear();
-                    auto_fill_dataframe(df, 10);
-                printf("Auto Filling has been done.\n");
-                break;
-                default:
-                    printf("ERROR\n");
-                break;
-            }
-            break;
 
             case 3:
                 clear();
                 if (df != NULL) {
                     int var = 0;
-                    int limit =0;
+                    int limit = 0;
                     printf("1 - Display the entire Data frame\n");
                     printf("2 - Display a part of the Data frame rows\n");
                     printf("3 - Display a part of the Data frame columns\n");
@@ -131,7 +131,7 @@ int main() {
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
-            break;
+                break;
 
             case 4:
                 clear();
@@ -143,8 +143,8 @@ int main() {
                            "\n5 - Rename the title of a column in the Dataframe"
                            "\n6 - Replace a value in the Dataframe cell using its row and column number"
                            "\nChoose your option :\n");
-                    scanf("%d",&lechoix);
-                    switch(lechoix){
+                    scanf("%d", &lechoix);
+                    switch (lechoix) {
                         case 1:
                             clear();
                             add_row(df);
@@ -184,7 +184,7 @@ int main() {
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
-            break;
+                break;
 
             case 5:
                 clear();
@@ -196,7 +196,7 @@ int main() {
                     printf("5 - Display the number of cells containing a value less than x\n");
                     printf("Choose your option :\n");
                     scanf("%d", &m);
-                    switch (m){
+                    switch (m) {
                         case 1:
                             clear();
                             printf("The number of rows is %d\n", df->columns[0]->lsize);
@@ -257,14 +257,14 @@ int main() {
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
-            break;
+                break;
 
             case 6:
                 clear();
-                if (df != NULL){
+                if (df != NULL) {
                     printf("1 - Sum of all the values in the Dataframe\n");
                     printf("2 - Average of all the values in the Dataframe\n");
-                    printf("3 - average of all the values in a specified column\n");
+                    printf("3 - Average of all the values in a specified column\n");
                     printf("4 - Sum of all the values in a specified column\n");
                     printf("5 - Maximum value in the Dataframe\n");
                     printf("6 - Minimum value in the Dataframe\n");
@@ -386,14 +386,12 @@ int main() {
                             break;
 
                     }
-                }
-                else
-                {
+                } else {
                     printf("Data frame is not created yet.\n");
                 }
                 break;
 
-            case 7:
+                case 7:
                 clear();
                 if (df != NULL) {
                     save_as_csv((df));
@@ -410,8 +408,9 @@ int main() {
 
             default:
                 printf("ERROR\n");
-            break;
+                break;
         }
+
         choice = 0; // Reset choice to re-enter the menu
     }
 
