@@ -191,3 +191,40 @@ void delete_column_from_dataframe(DF *df, int column_index) {
     }
 }
 
+
+void save_as_csv(DF *df) {
+    FILE *f = fopen("dataframe.csv", "w");
+    if (f == NULL) {
+        printf("Error opening file!\n");
+        exit(1);
+    }
+    for (int i = 0; i < df->nb_columns; i++) {
+        fprintf(f, "%s", df->columns[i]->title);
+        if (i != df->nb_columns - 1) {
+            fprintf(f, ";");
+        }
+    }
+    fprintf(f, "\n");
+    int max_rows = 0;
+    for (int i = 0; i < df->nb_columns; i++) {
+        if (df->columns[i]->lsize > max_rows) {
+            max_rows = df->columns[i]->lsize;
+        }
+    }
+    for (int row = 0; row < max_rows; row++) {
+        for (int col = 0; col < df->nb_columns; col++) {
+            if (row < df->columns[col]->lsize) {
+                fprintf(f, "%d", df->columns[col]->data[row]);
+            } else {
+                fprintf(f, " "); // Write a blank space if the column doesn't have a value for this row
+            }
+            if (col != df->nb_columns - 1) {
+                fprintf(f, ";");
+            }
+        }
+        fprintf(f, "\n");
+    }
+
+    fclose(f);
+}
+
