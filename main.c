@@ -173,7 +173,12 @@ int main() {
                             break;
                         case 6:
                             clear();
-
+                            int row, col;
+                            printf("Enter row number: ");
+                            scanf("%d", &row);
+                            printf("Enter column number: ");
+                            scanf("%d", &col);
+                            access_or_replace_cell_value(df, row, col);
                             break;
 
                         default:
@@ -396,7 +401,7 @@ int main() {
             case 7:
                 clear();
                 if (df != NULL) {
-                    save_as_csv((df));
+                    save_as_csv(df);
                     printf("Data frame has been saved to dataframe.csv\n");
                 } else {
                     printf("Data frame is not created yet.\n");

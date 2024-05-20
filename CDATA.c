@@ -238,7 +238,30 @@ void rename_column(DF *df) {
     printf("Enter the new name for the column: ");
     scanf("%99s", new_name);
     change_column_name(df->columns[column_index], new_name);
+    df->columns[df->nb_columns+1]->lsize=df->columns[df->nb_columns+1]->lsize+1;
 
+}
+
+void access_or_replace_cell_value(DF *df, int row, int col) {
+    if (col < 0 || col >= df->nb_columns || row < 0 || row >= df->columns[col]->lsize) {
+        printf("Row or column index out of bounds.\n");
+        return;
+    }
+
+    int current_value = df->columns[col]->data[row];
+    printf("Current value at row %d, column %d: %d\n", row, col, current_value);
+
+    char choice;
+    printf("Do you want to replace this value? (y/n): ");
+    scanf(" %c", &choice);
+
+    if (choice == 'y' || choice == 'Y') {
+        int new_value;
+        printf("Enter new value: ");
+        scanf("%d", &new_value);
+        df->columns[col]->data[row] = new_value;
+        printf("Value updated successfully.\n");
+    }
 }
 
 void save_as_csv(DF *df) {
@@ -265,7 +288,7 @@ void save_as_csv(DF *df) {
             if (row < df->columns[col]->lsize) {
                 fprintf(f, "%d", df->columns[col]->data[row]);
             } else {
-                fprintf(f, " "); // Write a blank space if the column doesn't have a value for this row
+                fprintf(f, " ");
             }
             if (col != df->nb_columns - 1) {
                 fprintf(f, ";");
