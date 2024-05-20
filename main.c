@@ -12,9 +12,7 @@ int main() {
     int new_choice = 0;
     char **titles = NULL;
     DF *df = NULL;
-    int lechoix=0;
-    int m=0;
-    int sum; int col_index = 0;  int min;    int max;   int count;    int l = 0;    int j = 0;
+    int lechoix=0, m=0, col_index = 0, min, l = 0, j = 0, max, sum, count;
 
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
     while (start == 0) {
