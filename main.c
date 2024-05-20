@@ -18,7 +18,7 @@ int main() {
 
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
     while (start == 0) {
-        while (choice < 1 || choice > 6) {
+        while (choice < 1 || choice > 8) {
             printf("Choose your option :\n");
             printf("1 - Create a new Data frame\n");
             printf("2 - Fill the Data frame\n");
