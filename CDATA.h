@@ -24,6 +24,7 @@ void delete_column_use(DF *df);
 void print_titles(COLUMN **columns, int nb_columns);
 void change_column_name(COLUMN *col, const char *new_name);
 void rename_column(DF *df);
+void access_or_replace_cell_value(DF *df, int row, int col);
 void save_as_csv(DF *df);
 
 
