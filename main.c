@@ -115,7 +115,8 @@ int main() {
 
             case 4:
                 if (df != NULL) {
-                    int new_choice=0;
+                    // Implement your logic to modify the DataFrame
+                    printf("Modify the Data frame functionality is not yet implemented.\n");
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
