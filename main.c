@@ -24,7 +24,7 @@ int main() {
             printf("3 - Display the Data frame\n");
             printf("4 - Modify the Data frame\n");
             printf("5 - Analyze the Data frame\n");
-            printf("6 - Save the Data frame as a CSV file\n");
+            printf("6 - create a CSV file and save the Data frame inside\n");
             printf("7 - Exit\n");
             scanf("%d", &choice);
 
@@ -220,13 +220,10 @@ int main() {
             break;
             case 6:
                 if (df != NULL) {
-                    printf("Enter the name of the file to save the Dataframe as a CSV file: ");
-                    char filename[100];
-                    scanf("%s", filename);
-                    FILE *f = fopen(filename, "w");
+                    FILE *f = fopen("dataframe.csv", "w");
                     if (f == NULL) {
-                        printf("Error opening file.\n");
-                        break;
+                        printf("Error opening file!\n");
+                        exit(1);
                     }
                     for (i = 0; i < df->nb_columns; i++) {
                         fprintf(f, "%s", df->columns[i]->title);
@@ -253,7 +250,7 @@ int main() {
                         fprintf(f, "\n");
                     }
                     fclose(f);
-                    printf("Dataframe saved as a CSV file.\n");
+                    printf("Data frame has been saved to dataframe.csv\n");
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
