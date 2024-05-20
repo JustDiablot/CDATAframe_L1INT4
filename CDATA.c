@@ -63,7 +63,7 @@ void auto_fill_dataframe(DF *df, int nb_rows) {
     }
 }
 
-void print_partial_dataframe(DF *df, int row_limit) {
+void display_limited_rows(DF *df, int row_limit) {
     if(df ==NULL) {
         printf("DataFrame does not exist or is empty\n");
         return;
@@ -71,7 +71,7 @@ void print_partial_dataframe(DF *df, int row_limit) {
     int max_row=0;
 
     for(int i= 0;i< df->nb_columns;i++) {
-        if(df->nb_columns[i]->lsize > max_row) {
+        if(df->columns[i]->lsize > max_row) {
             max_row = df->columns[i]->lsize;
         }
     }
@@ -96,20 +96,65 @@ void print_partial_dataframe(DF *df, int row_limit) {
 
 
 void display_limited_columns(DF *df, int limit) {
-    printf("Displaying first %d columns of the DataFrame:\n", limit);
-    for (int i = 0; i < limit && i < df->nb_columns; i++) {
-        print_col(df->columns[i]);  // Assuming print_col() is a function that prints a column
+    if (!df || df->nb_columns == 0) {
+        printf("DataFrame is empty or does not exist.\n");
+        return;
+    }
+    int cols_to_print = (limit < df->nb_columns) ? limit : df->nb_columns;
+
+    printf("Printing the first %d columns:\n", cols_to_print);
+    for (int i = 0; i < cols_to_print; i++) {
+        printf("%s\t", df->columns[i]->title);
+    }
+    printf("\n");
+
+    int max_rows = 0;
+    for (int i = 0; i < cols_to_print; i++) {
+        if (df->columns[i]->lsize > max_rows) {
+            max_rows = df->columns[i]->lsize;
+        }
+    }
+    for (int row = 0; row < max_rows; row++) {
+        for (int col = 0; col < cols_to_print; col++) {
+            if (row < df->columns[col]->lsize) {
+                printf("%d\t", df->columns[col]->data[row]);
+            } else {
+                printf("\t");
+            }
+        }
+        printf("\n");
     }
 }
 
 void add_row_to_dataframe(DF *df, int *row_values) {
     for (int i = 0; i < df->nb_columns; i++) {
-        insert_value(df->columns[i], row_values[i]);  // Assuming insert_value() adds a value to a column
+        insert_value(df->columns[i], row_values[i]);
     }
 }
 void delete_row_from_dataframe(DF *df, int row_index) {
     for (int i = 0; i < df->nb_columns; i++) {
-        remove_value_at_index(df->columns[i], row_index);  // Assuming remove_value_at_index() removes a value at a specific index
+        remove_value_at_index(df->columns[i], row_index);
     }
+}
+
+void add_row(DF *df) {
+    int nb_columns = df->nb_columns;
+    int *row_values = malloc(nb_columns * sizeof(int));
+    if (row_values == NULL) {
+        printf("Memory allocation failed\n");
+        return;
+    }
+    printf("Enter %d values for the new row:\n", nb_columns);
+    for (int i = 0; i < nb_columns; i++) {
+        scanf("%d", &row_values[i]);
+    }
+    add_row_to_dataframe(df, row_values);
+    free(row_values);
+}
+void delete_row(DF *df) {
+    int row_index;
+    printf("Enter the row index to delete: ");
+    scanf("%d", &row_index);
+    delete_row_from_dataframe(df, row_index);
 }
 

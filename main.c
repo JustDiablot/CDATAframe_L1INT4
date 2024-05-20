@@ -12,6 +12,7 @@ int main() {
     int new_choice = 0;
     char **titles = NULL;
     DF *df = NULL;
+    int lechoix=0;
 
     printf("\tWelcome to Oscar's and Valentin's Project !\n");
     while (start == 0) {
@@ -83,6 +84,7 @@ int main() {
             case 3:
                 if (df != NULL) {
                     int var = 0;
+                    int limit =0;
                     printf("1 - Display the entire Data frame\n");
                     printf("2 - Display a part of the Data frame rows\n");
                     printf("3 - Display a part of the Data frame columns\n");
@@ -115,8 +117,29 @@ int main() {
 
             case 4:
                 if (df != NULL) {
-                    // Implement your logic to modify the DataFrame
-                    printf("Modify the Data frame functionality is not yet implemented.\n");
+                    printf("1 - Add a row of values to the Dataframe"
+                           "\n2 - Delete a row of values from the Dataframe"
+                           "\n3 - Add a column to the Dataframe"
+                           "\n4 - Delete a column from the Dataframe"
+                           "\n5 - Rename the title of a column in the Dataframe"
+                           "\n6 - Check the existence of a value in the Dataframe"
+                           "\n7 - Replace a value in the Dataframe cell using its row and column number\n");
+                    scanf("%d",&lechoix);
+                    switch(lechoix){
+                        case 1:
+                            add_row(df);
+                        printf("Added a new row succesfully\n");
+                            break;
+                        case 2:
+                            delete_row(df);
+                        printf("Deleted the row succesfully\n");
+                            break;
+
+                        default:
+                            printf("ERROR\n");
+                            break;
+                    }
+
                 } else {
                     printf("Data frame is not created yet.\n");
                 }
