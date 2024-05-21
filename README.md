@@ -1,7 +1,7 @@
 # CDATAframe_L1INT4
 Project in C S2 EFREI Paris (Oscar MASDUPUY &amp; Valentin AUFFRAY)
 
-## [👉 visit our github 👈](https://github.com/JustDiablot/CDATAframe_L1INT4) 
+## [👉 Visit our Github 👈](https://github.com/JustDiablot/CDATAframe_L1INT4) 
 
 ## 📚 Table of contents
 - [Introduction](#introduction)
